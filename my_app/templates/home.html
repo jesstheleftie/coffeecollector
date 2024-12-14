@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %} {% block content %}
+<div
+  class="home-page-container-loggedin {% if not user.is_authenticated %} home-page-container {% endif %}"
+>
+  <div>
+    <section class="logo-container">
+      <div class="cat-container"></div>
+      <img
+        class="hero-image"
+        src="{% static 'images/coffee-hero-image.jpg' %}"
+        alt="Text reads: Coffee Collector"
+      />
+    </section>
+  </div>
+  {% if user.is_authenticated %}
+  <div>
+    <h3>Take the coffee quiz!</h3>
+  </div>
+  {% endif %} {% if not user.is_authenticated %}
+  <section>
+    <form action="{% url 'home' %}" method="post" class="login">
+      <h1>Login</h1>
+      {% csrf_token %} {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button type="submit" class="btn submit">Login</button>
+    </form>
+  </section>
+</div>
+{% endif %} {% endblock %}

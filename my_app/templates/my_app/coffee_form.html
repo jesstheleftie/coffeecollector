@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %} {% block content %}
+
+<div class="page-header">
+  <!-- Check if a cat object exists to determine if we're editing -->
+  {% if coffee %}
+  <h1>Edit {{ coffee.name }}</h1>
+  <img src="{% static 'images/coffee-icons-1.jpg' %}" alt="Coffee Icons" />
+  {% else %}
+  <h1>Add a Coffee</h1>
+  <img src="{% static 'images/coffee-icons-1.jpg' %}" alt="Coffee Icons" />
+  {% endif %}
+</div>
+
+<form action="" method="post" class="form-container">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn submit">Submit!</button>
+</form>
+
+{% endblock %}

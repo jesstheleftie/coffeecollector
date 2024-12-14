@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" href="{% static 'css/coffees/coffee-index.css' %}" />
+{% endblock %} {% block content %}
+
+<section class="page-header">
+  <h1 class="index-page-title">Your Coffees</h1>
+  <img src="{% static 'images/coffee-icons-3.jpg' %}" alt="Coffee icons" />
+</section>
+
+<section class="card-container">
+  {% for coffee in coffees %}
+  <div class="card">
+    <a href="{% url 'coffee-detail' coffee.id %}">
+      <div class="card-content">
+        <div class="card-img-container">
+          <div style="text-align: center">
+            <img
+              style="width: 100px"
+              src="{% static 'images/coffeebag.jpg' %}"
+              alt="A bag of coffee"
+            />
+          </div>
+        </div>
+        <h2 class="card-title">{{ coffee.name }}</h2>
+        {% if coffee.roast_age_in_months > 0 %}
+        <p>
+          {{ coffee.name }} was roasted {{ coffee.roast_age_in_months }} months
+          ago.
+        </p>
+        {% else %}
+        <p>{{ coffee.name }} is newly roasted.</p>
+        {% endif %}
+        <p><small>Tasting notes:{{ coffee.description }}</small></p>
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
