@@ -588,7 +588,7 @@ nav li {
     }
 }
 
-@media only screen and (min-width: 1024px) {
+/* @media only screen and (min-width: 1024px) {
     main {
         min-height: calc(100vh - 55px);
     }
@@ -615,7 +615,7 @@ nav li {
     }
 
     .header-logo-container {
-        /* visual fix to help align logo */
+     
         padding-top: 6px;
         width: 256px;
         height: 35px;
@@ -630,12 +630,12 @@ nav li {
         nav,
         .header-logo-container {
             background: rgba(190, 141, 89, 0.6);
-            /* Light coffee brown with some transparency */
+    
             -webkit-backdrop-filter: blur(3px);
             backdrop-filter: blur(3px);
         }
     }
-}
+} */
 
 #logout-form button {
     text-decoration: none;
