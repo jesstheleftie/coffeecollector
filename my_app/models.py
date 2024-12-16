@@ -23,7 +23,7 @@ class Coffee(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        # Use the 'reverse' function to dynamically find the URL for viewing this cat's details
+        # Use the 'reverse' function to dynamically find the URL for viewing this coffee's details
         return reverse('coffee-detail', kwargs={'coffee_id': self.id})
 
 

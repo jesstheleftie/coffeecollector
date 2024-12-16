@@ -38,7 +38,7 @@ class CoffeeCreate(LoginRequiredMixin, CreateView):
 
 class CoffeeUpdate(LoginRequiredMixin, UpdateView):
     model = Coffee
-    # Let's disallow the renaming of a cat by excluding the name field!
+    # Let's disallow the renaming of a coffee by excluding the name field!
     fields = ['roast', 'description', 'roast_age_in_months']
 
 class CoffeeDelete(LoginRequiredMixin, DeleteView):
@@ -84,7 +84,7 @@ def add_rating(request, coffee_id):
     # validate the form
     if form.is_valid():
         # don't save the form to the db until it
-        # has the cat_id assigned
+        # has the coffee_id assigned
         new_rating = form.save(commit=False)
         new_rating.coffee_id = coffee_id
         new_rating.save()
