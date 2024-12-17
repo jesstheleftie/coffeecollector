@@ -11,21 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CustomAuthenticationForm
 
-# class Coffee:
-#     def __init__(self, name, roast, description, roast_age_in_months):
-#         self.name = name
-#         self.roast = roast
-#         self.description = description
-#         self.roast_age_in_months = roast_age_in_months
 
-# coffees = [
-#     Coffee('Tropical Punch', 'light', 'Fruity and sweet.', 6),
-#     Coffee('Holiday Espresso', 'medium', 'Gingerbread spice and chocolaty', 2),
-#     Coffee('Old School', 'dark', 'Caramel and nutty', 3),
-#     Coffee('Grinch', 'dark', 'Molasses and liquorice', 5)
-# ]
-# Create your views here.
-# main-app/views.py
 
 class CoffeeCreate(LoginRequiredMixin, CreateView):
     model = Coffee
@@ -46,13 +32,7 @@ class CoffeeDelete(LoginRequiredMixin, DeleteView):
     success_url = '/coffees/'
 
 
-# Import HttpResponse to send text-based responses
-# from django.http import HttpResponse
 
-# Define the home view function
-# def home(request):
-#     # Send a simple HTML response
-#     return render(request, 'home.html')
 class Home(LoginView):
     template_name = 'home.html'
     form_class = CustomAuthenticationForm
@@ -65,9 +45,7 @@ def coffee_index(request):
     return render(request, 'coffees/index.html', {'coffees':coffees})
 
 
-# def coffee_detail(request, coffee_id):
-#     coffee = Coffee.objects.get(id=coffee_id)
-#     return render(request, 'coffees/detail.html', {'coffee': coffee})
+
 @login_required 
 def coffee_detail(request, coffee_id):
     coffee = Coffee.objects.get(id=coffee_id)
