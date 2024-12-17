@@ -15,7 +15,6 @@
 
 - **Django**: Web framework for the backend.
 - **SQLite**: Lightweight database for development (can be configured to use PostgreSQL or MySQL in production).
-- **Bootstrap**: CSS framework for responsive design (optional, depending on implementation).
 - **Git**: Version control.
 - **Python**: Programming language for server-side logic.
 - **VSCode/Other IDEs**: Code editor for development.
